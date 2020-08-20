@@ -1,0 +1,7 @@
+<li (click)="onClick()" class="list-group-item">
+
+    <p> {{product.name}} </p>
+    <p>{{product.priceOut | currency : 'COP ' : 'symbol' : '1.0-0' }}</p>
+    <p>{{product.inventory}}</p>
+
+</li>

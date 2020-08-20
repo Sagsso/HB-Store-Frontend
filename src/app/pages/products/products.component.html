@@ -1,0 +1,34 @@
+
+<h1>Productos</h1>
+
+<div  class="mat-elevation-z8">
+    <mat-table [dataSource]="products">
+    
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef> Nombre </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+        </ng-container>
+    
+        <!-- Weight Column -->
+        <ng-container matColumnDef="priceOut">
+            <mat-header-cell *matHeaderCellDef> Precio </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.priceOut | currency : 'USD' : 'symbol' : '1.0-0'}} </mat-cell>
+        </ng-container>
+    
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="inventory">
+            <mat-header-cell *matHeaderCellDef> Cantidad </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.inventory}} </mat-cell>
+        </ng-container>
+    
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>
+
+<!-- <ul class="list-group">
+<app-product *ngFor="let product of products | async" 
+[product]="product" (clickProduct)="listenClick($event)" ></app-product>
+</ul> -->

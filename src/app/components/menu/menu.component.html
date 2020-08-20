@@ -1,0 +1,38 @@
+<!-- <ul class="list-group">
+
+    <a [routerLink]="ruta.path" class="list-group-item" *ngFor="let ruta of rutas">
+        {{ruta.name}}
+    </a>
+    
+</ul> -->
+
+
+<mat-sidenav-container class="example-container" (backdropClick)="close('backdrop')" >
+    <mat-sidenav #sidenav (keydown.escape)="close('escape')" disableClose>
+        <mat-selection-list  [multiple]="false">
+            <mat-list-option [routerLink]="ruta.path" (click)="close('toggle button')" *ngFor="let ruta of rutas" [value]="ruta">
+                {{ruta.name}}
+            </mat-list-option>
+        </mat-selection-list>
+        <!-- <p *ngFor="let ruta of rutas"><button [routerLink]="ruta.path" mat-button (click)="close('toggle button')">{{ruta.name}}</button></p> -->
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+<p>
+    <mat-toolbar color="primary">
+        <button mat-icon-button (click)="sidenav.open()" class="example-icon" aria-label="Example icon-button with menu icon">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <span>Hermosa Bendición</span>
+        <!-- <span class="example-spacer"></span> -->
+        <!-- <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+            <mat-icon>favorite</mat-icon>
+        </button>
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+            <mat-icon>share</mat-icon>
+        </button> -->
+    </mat-toolbar>
+</p>
+<router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>
