@@ -1,0 +1,21 @@
+.mat-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .mat-card-content{
+        margin: 15px 0px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 90%;
+        .mat-form-field{
+            width: 80%;
+        }
+    }
+}
+
+.actions {
+  padding: 0px 5px;
+}

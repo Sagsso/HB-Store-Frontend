@@ -1,9 +1,10 @@
 .mat-header-cell {
   flex-direction: column;
   justify-content: center;
-  background-color: #e11d74;
+  background-color: #ff4081;
   color: #fff;
   font-weight: 700;
+  font-size: 16px;
 }
 
 .mat-cell {
@@ -11,3 +12,20 @@
     justify-content:center;
 }
 
+
+.title{
+  border-bottom: 4px dotted rgb(207, 167, 167);
+  height: auto;
+  h1{
+    font-family: 'Pacifico', cursive;
+    text-align: center;
+  }
+}
+
+.card {
+  margin: 15px 0px;
+}
+
+.actions {
+  padding: 0px 5px;
+}

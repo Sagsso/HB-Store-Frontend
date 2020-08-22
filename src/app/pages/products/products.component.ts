@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from 'src/app/services/products.service';
 import { Product } from './product/product.model';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -13,7 +14,10 @@ export class ProductsComponent implements OnInit {
   products: any[];
   displayedColumns: any[] = ['name','priceOut', 'inventory'];
 
-  constructor(private productsService: ProductsService) { }
+  constructor(
+    private productsService: ProductsService,
+    private router: Router
+    ) { }
 
   ngOnInit(): void {
     this.productsService.getProducts().subscribe((products: any[]) => {
@@ -25,8 +29,9 @@ export class ProductsComponent implements OnInit {
   }
 
   listenClick(id: number) {
-    console.log("Click en: ", id);
-    
+    console.log("Click en: ", id);  
   }
+
+
 
 }
