@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { SalesComponent } from './sales/sales.component';
 import { InventoryComponent } from './inventory/inventory.component';
-import { SellComponent } from './sell/sell.component';
+// import { SellComponent } from './sell/sell.component';
 import { HomeComponent } from './home/home.component';
 import { MaterialModule } from 'src/app/modules/material/material/material.module';
 
@@ -13,13 +13,11 @@ import { MaterialModule } from 'src/app/modules/material/material/material.modul
   declarations: [
     InventoryComponent,
     SalesComponent,
-    SellComponent,
     HomeComponent,
   ],
   exports: [
     InventoryComponent,
     SalesComponent,
-    SellComponent,
     HomeComponent,
   ],
   imports: [

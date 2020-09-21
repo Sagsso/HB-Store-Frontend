@@ -7,10 +7,11 @@
 </ul> -->
 
 
-<mat-sidenav-container class="example-container" (backdropClick)="close('backdrop')" >
+<mat-sidenav-container class="example-container" (backdropClick)="close('backdrop')">
     <mat-sidenav #sidenav (keydown.escape)="close('escape')" disableClose>
-        <mat-selection-list  [multiple]="false">
-            <mat-list-option [routerLink]="ruta.path" (click)="close('toggle button')" *ngFor="let ruta of rutas" [value]="ruta">
+        <mat-selection-list [multiple]="false">
+            <mat-list-option [routerLink]="ruta.path" (click)="close('toggle button')" *ngFor="let ruta of rutas"
+                [value]="ruta">
                 {{ruta.name}}
             </mat-list-option>
         </mat-selection-list>
@@ -18,21 +19,25 @@
     </mat-sidenav>
 
     <mat-sidenav-content>
-<p>
-    <mat-toolbar color="accent">
-        <button mat-icon-button (click)="sidenav.open()" class="example-icon" aria-label="Example icon-button with menu icon">
-            <mat-icon>menu</mat-icon>
-        </button>
-        <span class="title">Hermosa Bendición</span>
-        <!-- <span class="example-spacer"></span> -->
-        <!-- <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+        <p>
+            <mat-toolbar class="header" color="accent">
+                <button mat-icon-button (click)="sidenav.open()" class="example-icon"
+                    aria-label="Example icon-button with menu icon">
+                    <mat-icon>menu</mat-icon>
+                </button>
+                <span class="title">Hermosa Bendición</span>
+                <button class="btn-cart" mat-raised-button [matBadge]="total$ | async" matBadgeColor="basic" routerLink="/order">
+                    <img class="icon" src="assets/images/add.svg" alt="">
+                </button>
+                <!-- <span class="example-spacer"></span> -->
+                <!-- <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
             <mat-icon>favorite</mat-icon>
         </button>
         <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
             <mat-icon>share</mat-icon>
         </button> -->
-    </mat-toolbar>
-</p>
-<router-outlet></router-outlet>
+            </mat-toolbar>
+        </p>
+        <router-outlet></router-outlet>
     </mat-sidenav-content>
 </mat-sidenav-container>

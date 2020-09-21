@@ -21,4 +21,7 @@ export class ProductComponent implements OnInit {
     this.clickProduct.emit(this.product.id);
   }
 
+  
+  
+
 }

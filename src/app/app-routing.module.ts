@@ -22,8 +22,12 @@ export const routes: Routes = [
     component: SalesComponent
   },
   {
+    path: 'order',
+    loadChildren: () => import('./pages/order/order.module').then(m => m.OrderModule) //LAZY LOADING
+  },
+  {
     path: 'sell',
-    component: SellComponent
+    loadChildren: () => import('./pages/sell/sell.module').then(m => m.SellModule) //LAZY LOADING
   },
   {
     path: 'products',

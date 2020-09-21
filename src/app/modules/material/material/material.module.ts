@@ -12,6 +12,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatBadgeModule } from '@angular/material/badge';
 
 
 
@@ -31,7 +33,9 @@ import { MatCardModule } from '@angular/material/card';
     MatPaginatorModule,
     MatFormFieldModule,
     MatCardModule,
-    MatInputModule
+    MatInputModule,
+    MatStepperModule,
+    MatBadgeModule
   ], exports: [
     MatMenuModule,
     MatTableModule,
@@ -43,7 +47,9 @@ import { MatCardModule } from '@angular/material/card';
     MatPaginatorModule,
     MatFormFieldModule,
     MatCardModule,
-    MatInputModule
+    MatInputModule,
+    MatStepperModule,
+    MatBadgeModule
   ]
 })
 export class MaterialModule { }

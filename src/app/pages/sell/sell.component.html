@@ -1,1 +1,49 @@
-<p>sell works!</p>
+<div class="title">
+    <h1>Vender</h1>
+</div>
+
+<div class="container">
+    <div class="card mat-elevation-z4">
+        <mat-form-field>
+            <mat-label>Filter</mat-label>
+            <input matInput (keyup)="applyFilter($event)" placeholder="Ej: billetera" #input>
+        </mat-form-field>
+        <table mat-table [dataSource]="dataSource">
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="name">
+                <mat-header-cell *matHeaderCellDef> Nombre </mat-header-cell>
+                <mat-cell *matCellDef="let product"> {{product.name}} </mat-cell>
+            </ng-container>
+
+            <!-- PriceOut Column -->
+            <ng-container matColumnDef="priceOut">
+                <mat-header-cell *matHeaderCellDef> Precio </mat-header-cell>
+                <mat-cell *matCellDef="let product"> {{product.priceOut | currency : 'USD' : 'symbol' : '1.0-0'}}
+                </mat-cell>
+            </ng-container>
+
+            <!-- Inventory Column -->
+            <ng-container matColumnDef="inventory">
+                <mat-header-cell *matHeaderCellDef> Cantidad </mat-header-cell>
+                <mat-cell *matCellDef="let product"> {{product.inventory}} </mat-cell>
+            </ng-container>
+
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+            <!-- Actions Column -->
+
+            <ng-container matColumnDef="actions">
+                <mat-header-cell *matHeaderCellDef> Acciones </mat-header-cell>
+                <mat-cell *matCellDef="let product">
+                    <button class="btn-actions" mat-button (click)="add2Cart(product)">
+                        <img class="icon" src="assets/images/add.svg" alt="">
+                    </button>
+                </mat-cell>
+            </ng-container>
+        </table>
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    </div>
+
+</div>

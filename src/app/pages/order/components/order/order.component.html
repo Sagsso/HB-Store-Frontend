@@ -1,0 +1,46 @@
+<mat-vertical-stepper>
+    <mat-step>
+        <ng-template matStepLabel>Sus productos</ng-template>
+        <div *ngIf="items">
+            <p *ngIf=" items.length === 0">El carrito está vacío</p>
+            <table *ngIf="items.length>0" mat-table [dataSource]="items">
+            
+                <!-- Name Column -->
+                <ng-container matColumnDef="name">
+                    <mat-header-cell *matHeaderCellDef> Producto </mat-header-cell>
+                    <mat-cell *matCellDef="let item"> {{item.product.name}} </mat-cell>
+                </ng-container>
+            
+                <!-- PriceOut Column -->
+                <ng-container matColumnDef="priceOut">
+                    <mat-header-cell *matHeaderCellDef> Precio </mat-header-cell>
+                    <mat-cell *matCellDef="let item"> {{item.product.priceOut | currency : 'USD' : 'symbol' : '1.0-0'}}
+                    </mat-cell>
+                </ng-container>
+            
+                <!-- Inventory Column -->
+                <ng-container matColumnDef="quantity">
+                    <mat-header-cell *matHeaderCellDef> Cantidad </mat-header-cell>
+                    <mat-cell *matCellDef="let item"> {{item.quantity}} </mat-cell>
+                </ng-container>
+                <!-- Total Column -->
+                <ng-container matColumnDef="total">
+                    <mat-header-cell *matHeaderCellDef> Total </mat-header-cell>
+                    <mat-cell *matCellDef="let item"> {{item.product.priceOut * item.quantity | currency : 'USD' : 'symbol' : '1.0-0'}} </mat-cell>
+                </ng-container>
+            
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+            </table>
+            <p>Total a pagar <span>{{total | currency : 'USD' : 'symbol' : '1.0-0'}}</span></p>
+        </div>
+    </mat-step>
+    <mat-step>
+        <ng-template matStepLabel>Datos personales</ng-template>
+        <h1>Contenido</h1>
+    </mat-step>
+    <mat-step>
+        <ng-template matStepLabel>Sus productos</ng-template>
+        <h1>Contenido</h1>
+    </mat-step>
+</mat-vertical-stepper>

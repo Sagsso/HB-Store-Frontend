@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
-
+import { CartService } from 'src/app/services/cart.service';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
@@ -10,23 +12,19 @@ export class MenuComponent implements OnInit {
 
   rutas = [
     {
-      name: 'Home',
+      name: 'Inicio',
       path: '/home'
     },
     {
-      name: 'Inventory',
-      path: '/inventory'
-    },
-    {
-      name: 'Sales',
+      name: 'Ventas',
       path: '/sales'
     },
     {
-      name: 'Sell',
+      name: 'Vender',
       path: '/sell'
     },
     {
-      name: 'Products',
+      name: 'Inventario',
       path: '/products'
     },
   ]
@@ -34,14 +32,21 @@ export class MenuComponent implements OnInit {
   @ViewChild('sidenav') sidenav: MatSidenav;
 
   reason = '';
+  total$: Observable<number>;
+
+  constructor(
+    private cartService: CartService
+  ) {
+    this.total$ = this.cartService.cart$
+      .pipe(
+        map(products => products.length)
+      );
+  }
 
   close(reason: string) {
     this.reason = reason;
     this.sidenav.close();
   }
-
-  constructor() { }
-
   ngOnInit(): void {
   }
 
