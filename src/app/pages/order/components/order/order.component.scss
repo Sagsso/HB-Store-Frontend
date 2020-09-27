@@ -23,6 +23,21 @@
 .mat-cell {
     text-align: center;
     justify-content:center;
-    font-size: 12px;
+    font-size: 13px;
     padding: 0px;
+}
+
+.result-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  font-weight: 500;
+  p {
+    margin: 10px 0;
+    font-family: Quicksand, Helvetica, sans-serif;
+  }
+  span {
+      font-size: 1.5em;
+  }
 }

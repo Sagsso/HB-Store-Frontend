@@ -27,6 +27,11 @@ export class CartService {
     this.cart.next(this.items);
   }
 
+  resetCart() {
+    this.items = [];
+    this.cart.next(this.items);
+  }
+
   getItems() {
     return this.items;
   }
