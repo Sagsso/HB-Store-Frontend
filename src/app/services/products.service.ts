@@ -11,13 +11,24 @@ export class ProductsService {
 
   }
 
-  getProducts(){
+  getProducts() {
     return this.http.get('http://localhost:3000/products');
   }
 
-  createProduct(product: Product){
+  getProduct(id: number) {
+    return this.http.get(`http://localhost:3000/products/${id}`);
+  }
+  updateProduct(id: number, newProperties) {
+    return this.http.put(`http://localhost:3000/products/${id}`, newProperties);
+  }
+
+  createProduct(product: Product) {
     return this.http.post('http://localhost:3000/products', product);
 
+  }
+
+  deleteProduct(id: number) {
+    return this.http.delete(`http://localhost:3000/products/${id}`);
   }
 
 

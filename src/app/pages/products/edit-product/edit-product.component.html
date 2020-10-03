@@ -1,0 +1,41 @@
+<div class="actions">
+    <button routerLink="/products" mat-button color="accent" type="submit">
+        Ver productos
+    </button>
+</div>
+<form [formGroup]="myForm" action="" (ngSubmit)="saveProduct($event)">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Edición de producto</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <mat-form-field>
+                <mat-label>Nombre del producto</mat-label>
+                <input placeholder="Gorra" formControlName="name" matInput type="text">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Descripción del producto</mat-label>
+                <input placeholder="Ej: gorra para hombre económica" formControlName="description" matInput type="text">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Precio de entrada</mat-label>
+                <input placeholder="Ej: 5000" formControlName="priceIn" matInput type="number" min="0">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Precio de venta</mat-label>
+                <input placeholder="Ej: 10000" formControlName="priceOut" matInput type="number" min="0">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Cantidad</mat-label>
+                <input placeholder="Ej: 6" formControlName="inventory" matInput type="number" min="0">
+            </mat-form-field>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button color="accent" [disabled]="myForm.invalid" type="submit">
+                Guardar
+            </button>
+        </mat-card-actions>
+    </mat-card>
+</form>
+
+<!-- (ngSubmit)="saveProduct($event)" -->

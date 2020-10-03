@@ -3,7 +3,7 @@
 </div>
 
 <div class="container">
-    <div class="card mat-elevation-z1">
+    <div class="card">
         <mat-form-field>
             <mat-label>Filter</mat-label>
             <input matInput (keyup)="applyFilter($event)" placeholder="Ej: billetera" #input>
@@ -37,18 +37,18 @@
             <ng-container matColumnDef="actions">
                 <mat-header-cell *matHeaderCellDef> Acciones </mat-header-cell>
                 <mat-cell *matCellDef="let product">
-                    <button class="btn-actions" mat-button [routerLink]="['edit', product.id]">
+                    <button class="btn-actions" mat-button [routerLink]="['editar', product.id]">
                         <!-- Editar -->
                         <!-- <span>Editar</span> -->
                         <img class="icon" src="assets/images/editar.svg" alt="">
                     </button>
-                    <button class="btn-actions" mat-button color="warn" (click)="deleteProduct(product.id)">
+                    <button class="btn-actions" mat-button color="warn" (click)="deleteProduct(product)">
                         <img class="icon delete" src="assets/images/eliminar.svg" alt="">
                     </button>
                 </mat-cell>
             </ng-container>
         </table>
-        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+        <mat-paginator [pageSizeOptions]="[10, 50, 100]" showFirstLastButtons></mat-paginator>
     </div>
     <div class="actions">
         <button routerLink="/products/registro" mat-button color="accent" type="submit">

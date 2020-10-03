@@ -26,10 +26,10 @@ export class ProductsComponent implements OnInit {
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
-  ngOnInit(): void {
+  ngOnInit(): void {  
     this.products$ = this.productsService.getProducts().subscribe(
       (products: any[]) => {
-      console.log(products);
+      console.log(...products);
       this.products = products;
       this.dataSource = new MatTableDataSource<Product>(this.products);
       this.dataSource.paginator = this.paginator;
@@ -43,7 +43,18 @@ export class ProductsComponent implements OnInit {
   }
 
   deleteProduct(product: Product){
-    console.log(product);
+    this.productsService.deleteProduct(product.id).subscribe((res: {msg: string, error: boolean, deleted: boolean}) => {
+      // this.router.navigate(['./admin/products']);
+      res.deleted ? console.log('Eliminando producto...') : console.log(res.msg);
+
+      if(res.deleted) {
+        this.products.splice(this.products.indexOf(product), 1)
+        this.dataSource = new MatTableDataSource<Product>(this.products);
+        this.dataSource.paginator = this.paginator;
+        console.log(this.products);
+        
+      }
+    });
     
   }
 

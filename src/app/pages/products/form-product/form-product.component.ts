@@ -33,8 +33,7 @@ export class FormProductComponent implements OnInit {
           console.log(newProduct, ' INGRESADO EN LA BD');
         });
     }
-    console.log(this.myForm.value);
-
+    this.myForm.reset();
   }
 
   private buildForm() {
