@@ -4,13 +4,13 @@ import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { SalesComponent } from './pages/sales/sales.component';
 import { SellComponent } from './pages/sell/sell.component';
-import { HomeComponent } from './pages/home/home.component';
+import { DashboardComponent } from './pages/dashboard/components/dashboard/dashboard.component';
 
 export const routes: Routes = [
   
   {
     path: 'home',
-    component: HomeComponent
+    loadChildren: () => import('./pages/dashboard/dashboard.module').then(m => m.DashboardModule) //LAZY LOADING
   },
   {
     path: 'sales',

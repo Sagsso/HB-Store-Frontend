@@ -1,19 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 
 import { Observable, Subscription } from 'rxjs';
-import { Product } from 'src/app/pages/products/product/product.model';
+import { Product } from 'src/app/models/product.model';
 import { CartService } from 'src/app/services/cart.service';
-import { Item } from '../../item.model';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { SellsService } from 'src/app/services/sells.service';
+import { SalesService } from 'src/app/services/sales.service';
 import { Router } from '@angular/router';
+import { Item } from 'src/app/models/item.model';
 
 @Component({
   selector: 'app-order',
   templateUrl: './order.component.html',
   styleUrls: ['./order.component.scss']
 })
-export class OrderComponent implements OnInit {
+export class OrderComponent implements OnInit, OnDestroy {
 
   items$: Subscription;
   items: Item[];
@@ -29,7 +29,7 @@ export class OrderComponent implements OnInit {
   constructor(
     private cartService: CartService,
     private _formBuilder: FormBuilder,
-    private sellsService: SellsService,
+    private salesService: SalesService,
     private router: Router
   ) {
     this.items$ = this.cartService.cart$.subscribe(
@@ -91,7 +91,7 @@ export class OrderComponent implements OnInit {
       const products = this.formatItemsToPost();
       console.log(pay, products, client);
       
-      this.sellsService.createSale(this.total, pay, client, products)
+      this.salesService.createSale(this.total, pay, client, products)
         .subscribe((newSale) => {
           this.router.navigate(['./sell']);
           console.log(newSale, ' INGRESADO EN LA BD');

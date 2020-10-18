@@ -1,0 +1,22 @@
+h1, h2 {
+    font-family: Quicksand;  
+}
+
+h1 {
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 2em;
+}
+
+.container {
+    padding: 2em;
+}
+
+.container-date {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+

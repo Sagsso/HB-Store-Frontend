@@ -1,18 +1,18 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { Product } from '../products/product/product.model';
+import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
+import { Product } from '../../models/product.model';
 import { MatTableDataSource } from '@angular/material/table';
 import { ProductsService } from 'src/app/services/products.service';
 import { MatPaginator } from '@angular/material/paginator';
 import { CartService } from 'src/app/services/cart.service';
 import { Subscription, Observable } from 'rxjs';
-import { Item } from '../order/item.model';
+import { Item } from 'src/app/models/item.model';
 
 @Component({
   selector: 'app-sell',
   templateUrl: './sell.component.html',
   styleUrls: ['./sell.component.scss']
 })
-export class SellComponent implements OnInit {
+export class SellComponent implements OnInit, OnDestroy {
   products$: Subscription;
   products: Product[];
   displayedColumns: any[] = ['name', 'priceOut', 'inventory', 'actions'];

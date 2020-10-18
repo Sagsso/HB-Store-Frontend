@@ -1,0 +1,14 @@
+<div class="container">
+    <div class="container-date">
+        <h1>Ventas</h1>
+        <!-- {{currentDate.getDate()}} {{currentDate.getMonth()+1}} {{currentDate.getFullYear()}} -->
+        <mat-form-field color="accent" appearance="fill" class="calendar-input">
+            <mat-label>Fecha de ventas</mat-label>
+            <input matInput [matDatepicker]="picker1" [formControl]="date" (dateChange)="selectedDateChange($event)">
+            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1 ></mat-datepicker>
+        </mat-form-field>
+    </div>
+    <h2 *ngIf="ammountSales">Total {{ammountSales | currency : 'USD' : 'symbol' : '1.0-0'}} </h2>
+</div>
+<app-sales-list></app-sales-list>

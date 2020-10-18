@@ -14,7 +14,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatBadgeModule } from '@angular/material/badge';
-
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 
 
@@ -35,7 +36,9 @@ import { MatBadgeModule } from '@angular/material/badge';
     MatCardModule,
     MatInputModule,
     MatStepperModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ], exports: [
     MatMenuModule,
     MatTableModule,
@@ -49,7 +52,9 @@ import { MatBadgeModule } from '@angular/material/badge';
     MatCardModule,
     MatInputModule,
     MatStepperModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ]
 })
 export class MaterialModule { }
